@@ -36,7 +36,7 @@
                         <td>{{ article.title }}</td>
                         <td>{{ article.description }}</td>
                         <td>{{ article.createdAt | date("F jS Y \\a\\t g:ia") }}</td>
-                        <td></td>
+                        <td>{{ article.note }}</td>
                         <td>
                             <div class="form-group">
                                 <a href="{{ path('delete_article', {article_id: article.id}) }}"

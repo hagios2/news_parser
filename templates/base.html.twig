@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Npontu Technologies">
 
-    <!-- CSRF Token -->
-    {#    <meta name="csrf-token" content="{{ csrf_token() }}"> #}
 
     <link rel="shortcut icon" href="{{ asset('images/npontu_logo.jpeg') }}"/>
 
@@ -15,7 +13,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -51,122 +48,26 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <img style="width:3rem;" src="{{ asset('images/npontu_logo.jpeg') }}"/>
             </div>
-            <div class="sidebar-brand-text mx-2">The Studios</div>
+            <div class="sidebar-brand-text mx-2">Mexx 2 Studios</div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="/dashboard">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        {#        <!-- Heading --> #}
-        {#        <div class="sidebar-heading"> #}
-        {#            Interface #}
-        {#        </div> #}
 
-        {#        <!-- Nav Item - Pages Collapse Menu --> #}
-        {#        <li class="nav-item"> #}
-        {#            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo0" aria-expanded="true" aria-controls="collapseTwo"> #}
-        {#                <i class="fas fa-fw fa-cog"></i> #}
-        {#                <span>Preference</span> #}
-        {#            </a> #}
-        {#            <div id="collapseTwo0" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"> #}
-        {#                <div class="bg-white py-2 collapse-inner rounded"> #}
-        {#                    <h6 class="collapse-header">User Preferences:</h6> #}
-        {#                    <a class="collapse-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a> #}
-        {#                    <a class="collapse-item" href="#"><i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i> Change Password</a> #}
-        {#                </div> #}
-        {#            </div> #}
-        {#        </li> #}
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ path('app_article_index') }}" data-toggle="collapse"
+               data-target="#collapseTw15"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Articles</span>
+            </a>
+        </li>
 
-        {#        @if (auth()->user()->role->role === 'super_admin') #}
-
-        {#        <li class="nav-item"> #}
-        {#            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="true" aria-controls="collapseTwo"> #}
-        {#                <i class="fas fa-fw fa-cog"></i> #}
-        {#                <span>Users</span> #}
-        {#            </a> #}
-        {#            <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"> #}
-        {#                <div class="bg-white py-2 collapse-inner rounded"> #}
-        {#                    <h6 class="collapse-header">SUPPORT TEAM:</h6> #}
-        {#                    <a class="collapse-item" href="/view-users"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> View Users</a> #}
-        {#                    <a class="collapse-item" href="/add-new-user"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> New User</a> #}
-        {#                </div> #}
-        {#            </div> #}
-        {#        </li> #}
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Departments
-        </div>
-
-        {% if is_granted('ROLE_PICKING') %}
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo3"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Picking</span>
-                </a>
-                <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manage Received Orders</h6>
-                        <a class="collapse-item" href="/view/received/orders"><i
-                                    class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> New Orders</a>
-                        <a class="collapse-item" href="/view/processing/orders"><i
-                                    class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Processing Orders</a>
-                    </div>
-                </div>
-            </li>
-        {% elseif is_granted('ROLE_SHIPPING') %}
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTw13"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Shipping</span>
-                </a>
-                {#            @if(auth()->user()->priviledge->view_extension) #}
-                <div id="collapseTw13" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manage Processed Orders</h6>
-                        <a class="collapse-item" href="/view/ready/orders"><i
-                                    class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Processed Orders</a>
-                        {#                    <a class="collapse-item" href="/view/processing/orders"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Processing Orders</a> #}
-                    </div>
-                </div>
-                {#            @endif #}
-            </li>
-
-        {% elseif is_granted('ROLE_ADMIN') %}
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTw15"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Management</span>
-                </a>
-                {#            @if(auth()->user()->priviledge->view_extension) #}
-                <div id="collapseTw15" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manage Processed Orders</h6>
-                        <a class="collapse-item" href="/management/view/all/orders"><i
-                                    class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>All Orders</a>
-                        {#                    <a class="collapse-item" href="/view/processing/orders"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Processing Orders</a> #}
-                    </div>
-                </div>
-                {#            @endif #}
-            </li>
-
-        {% endif %}
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -362,52 +263,9 @@
         </div>
     </div>
 
-
-    {#    @guest #}
-
-    {#    <div id="app"> #}
-    {#        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"> #}
-    {#            <div class="container"> #}
-    {#                <a class="navbar-brand" href="/"> #}
-    {#                    <img  src="https://npontu.com/UI/img/NpontuLogostroke.png" style="max-width:3rem; display:inline;" alt="" srcset=""> #}
-    {#                    <strong> #}
-    {#                        Activity App #}
-    {#                    </strong> #}
-    {#                </a> #}
-    {#                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ 'Toggle navigation' }}"> #}
-    {#                    <span class="navbar-toggler-icon"></span> #}
-    {#                </button> #}
-
-    {#                <div class="collapse navbar-collapse" id="navbarSupportedContent"> #}
-    {#                    <!-- Left Side Of Navbar --> #}
-    {#                    <ul class="navbar-nav mr-auto"> #}
-
-    {#                    </ul> #}
-
-    {#                    <!-- Right Side Of Navbar --> #}
-    {#                    <ul class="navbar-nav ml-auto"> #}
-    {#                        <!-- Authentication Links --> #}
-    {#                        <li class="nav-item"> #}
-    {#                            <a class="nav-link" href="/login">{{ 'Login' }}</a> #}
-    {#                        </li> #}
-
-    {#                        <li class="nav-item"> #}
-    {#                            <a class="nav-link" href="/register">{{ 'Register' }}</a> #}
-    {#                        </li> #}
-
-    {#                    </ul> #}
-    {#                </div> #}
-    {#            </div> #}
-    {#        </nav> #}
-
-    {#    </div><br> #}
-
-    {#    {% block noauthcontent %}{% endblock %} #}
-    {#    @endguest #}
-
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
-
     {% block javascripts %}{% endblock %}
+</div>
 </body>
 </html>

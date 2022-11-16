@@ -54,12 +54,22 @@ class NewsParserHandler implements MessageHandlerInterface
     public function parseNews(array $newContents, ArticleRepository $articleRepository)
     {
         foreach ($newContents['articles'] as $news) {
-            $article = new Article();
-            $article->setTitle($news['title']);
-            $article->setDescription($news['description']);
-            $article->setPicture($news['urlToImage']);
+            $existingArticle = $articleRepository->findOneBy(['title' => $news['title']]);
 
-            $articleRepository->save($article, true);
+            if ($existingArticle) {
+                $existingArticle->setTitle($news['title']);
+                $existingArticle->setDescription($news['description']);
+                $existingArticle->setPicture($news['urlToImage']);
+                $existingArticle->setNote('Updated on ' . date('F jS Y \\a\\t g:ia'));
+                $articleRepository->save($existingArticle, true);
+            } else {
+                $article = new Article();
+                $article->setTitle($news['title']);
+                $article->setDescription($news['description']);
+                $article->setPicture($news['urlToImage']);
+
+                $articleRepository->save($article, true);
+            }
         }
     }
 }
