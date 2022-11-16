@@ -1,0 +1,79 @@
+.dsl-panel {
+	height: calc(100% - 18px - 1em);
+	width: calc(50% - 5px);
+	float: left;
+	background-color: white;
+	border: 1px solid gray;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.dsl-panel:hover {
+}
+
+.dsl-panel.left-panel {
+	margin-right: 6px;
+}
+
+.dsl-panel::-webkit-scrollbar-track
+{
+	border-radius: 6px;
+	background-color: #F5F5F5;
+}
+
+.dsl-panel::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.dsl-panel::-webkit-scrollbar-thumb
+{
+	border-radius: 6px;
+	background-color: #C5C5C5;
+}
+
+.dsl-filter {
+	width: calc(50% - 5px);
+	float: left;
+	margin-bottom: 10px;
+	border: 1px solid rgba(1,1,1,0);
+}
+
+.dsl-filter.left-panel {
+	margin-right: 6px;
+}
+
+.dsl-filter-input {
+	font-size: 12px;
+	font-weight: 600;
+	color: lightgray;
+	width: calc(100% - 5px);
+	border: 1px solid gray;
+	padding: 10px 0px 10px 5px;
+}
+
+.dsl-panel-item {
+	font-size: 1em;
+	width: calc(100% - 16px);
+	margin: 3px;
+	padding: 5px;
+	background-color: #FFE99D;
+	cursor: pointer;
+}
+
+.dsl-panel-item:hover {
+	background-color: #FFC679;
+}
+
+.dsl-panel-item-null {
+	font-size: 1em;
+	width: calc(100% - 22px);
+	margin: 3px;
+	padding: 5px;
+	background-color: white;
+	cursor: pointer;
+	border: 3px dashed lightgray;
+	display: none;
+}
+

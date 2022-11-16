@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery DualSelectList Example</title>
+	<link rel="stylesheet" type="text/css" href="bala.DualSelectList/css/bala.DualSelectList.css">
+	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="bala.DualSelectList/js/bala.DualSelectList.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+      var dsl = $('#dualSelectExample').DualSelectList({
+        'candidateItems' : ['Item 01', 'Item 02', 'Item 03', 'Item 04', 'Item 05', 'Item 06', 'Item 07'],
+        'selectionItems' : ['Item 08', 'Item 09', 'Item 03']
+      });
+
+      $('#getSel').click(function(){
+        var res = dsl.getSelection();
+        var str = '';
+        for (var n=0; n<res.length; ++n) str += res[n] + '\n';
+        $('#selResult').val(str);
+      });
+
+      $('#addSel').click(function(){
+        var items = $('#addIterms').val().split('\n');
+        var res = dsl.setCandidate(items);
+      });
+    });
+	</script>
+    <style>
+    body { background-color:#fafafa;}
+    .container { margin:150px auto; font-family:'Roboto'; max-width:960px;}
+    </style>
+</head>
+
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/form/Filterable-Dual-List-Box-jQuery-DualSelectList.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+	<h1>jQuery DualSelectList Example</h1>
+
+	<div id="dualSelectExample" style="width:400px; height:300px; background-color:#F0F0F0; padding:10px;"></div><br>
+
+	<div style="float:left; margin-right:5px;">
+		<div id="addSel" style="background-color:lightgray; color:black; padding:5px; text-align:center; cursor:pointer; width:150px;">Add Items</div>
+		<textarea id="addIterms" rows="5" type="textarea" style="width:200px; height:100px; margin-top:5px;"></textarea>
+	</div>
+	<div style="float:left;">
+		<div id="getSel" style="background-color:lightgray; color:black; padding:5px; text-align:center; cursor:pointer; width:150px;">Get Selection</div>
+		<textarea id="selResult" rows="5" type="textarea" style="width:200px; height:100px; margin-top:5px;"></textarea>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>
