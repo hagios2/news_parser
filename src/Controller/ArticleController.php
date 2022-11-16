@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Message\NewsParser;
 use App\Repository\ArticleRepository;
 use Pagerfanta\Doctrine\ORM\QueryAdapter;
 use Pagerfanta\Pagerfanta;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Cache\CacheItem;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,18 +27,14 @@ class ArticleController extends AbstractController
     public function index(ArticleRepository $repository, Request $request, CacheInterface $articlesCache): Response
     {
         $currentPage = $request->query->get('page', 1);
-
-//        $pagerfanta = $articlesCache->get('user-pagers' . $currentPage, function (ItemInterface $item) use ($repository, $currentPage) {
         $queryBuilder = $repository->paginatorBuilder();
 
         $pagerfanta = new Pagerfanta(new QueryAdapter($queryBuilder));
         $pagerfanta->setMaxPerPage(10);
         $pagerfanta->setCurrentPage($currentPage);
-//            return $pagerfanta;
-//        });
 
         return $this->render('articles/index.html.twig', [
-            'pager' => $pagerfanta,
+            'pager' => $pagerfanta
         ]);
     }
 
