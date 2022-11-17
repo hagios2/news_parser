@@ -27,11 +27,16 @@ class ArticleController extends AbstractController
     public function index(ArticleRepository $repository, Request $request, CacheInterface $articlesCache): Response
     {
         $currentPage = $request->query->get('page', 1);
+
+        //cache the paginated data per the current page
+        // $pagerfanta = $articlesCache->get('user-pagers' . $currentPage, function (ItemInterface $item) use ($repository, $currentPage) {
         $queryBuilder = $repository->paginatorBuilder();
 
         $pagerfanta = new Pagerfanta(new QueryAdapter($queryBuilder));
         $pagerfanta->setMaxPerPage(10);
         $pagerfanta->setCurrentPage($currentPage);
+        // return $pagerfanta;
+        //});
 
         return $this->render('articles/index.html.twig', [
             'pager' => $pagerfanta
